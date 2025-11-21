@@ -3,12 +3,12 @@
 
 <section class="row">
   <div class="col-12 col-sm-6">
-    <h3>agregar:</h3>
-    <input type="text" class="formControl" placeholder="Nombre">
-    <input type="number" class="formControl mt-2" placeholder="Poder">
+    <h3>agregar: {{ name() + '-' + power()}}</h3>
+    <input type="text" class="formControl" placeholder="Nombre" [value]="name()" (change)="name.set(txtName.value)" #txtName>
+    <input type="number" class="formControl mt-2" placeholder="Poder" [value]="power()" (input)="power.set(txtPower.valueAsNumber)" #txtPower>
   </div>
 
-  <button class="mt-2 btn btn-primary">Agregar</button>
+  <button class="mt-2 btn btn-primary" (click)="addCharacter()">Agregar</button>
 
   <div class="col-12 col-sm-6">
     <h3>Listado:</h3>
